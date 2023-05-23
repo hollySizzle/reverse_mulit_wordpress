@@ -1,6 +1,0 @@
-.vscode/
-.code-workspace
-.DS_Store
-letsencrpyt/certs/
-app/tempalte_wordpress/volume/*
-!.gitkeep
