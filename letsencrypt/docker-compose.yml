@@ -1,0 +1,17 @@
+version: "2"
+services:
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: proxy-letsencrypt
+    restart: always
+    privileged: true
+    volumes:
+      - ./certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - container:proxy
+
+networks:
+  default:
+    external:
+      name: shared
