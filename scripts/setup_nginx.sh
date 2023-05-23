@@ -21,7 +21,7 @@ cd nginx-proxy/
 
 
 # env書き換え
-sed -i "s/DEAULT_EMAIL = default_email/DEAULT_EMAIL = $mail/g" .env
+sed -i "s/DEAULT_EMAIL=default_email/DEAULT_EMAIL=$mail/g" .env
 
 cd '/nginx-proxy'
 
