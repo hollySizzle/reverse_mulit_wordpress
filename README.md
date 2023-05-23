@@ -17,8 +17,8 @@ cd /docker
 ~~~
 sudo mkdir /docker
 sudo chown -R :docker /docker
-# docker以下に作成されるディレクトリとファイルを :docker 所有にする
-chmod g+s /docker || echo "/docker directory is already set to group sticky bit"
+sudo chmod g+s /docker
+sudo chmod g+rwx
 ~~~
   
 ### git clone
