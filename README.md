@@ -18,7 +18,7 @@ cd /docker
 sudo mkdir /docker
 sudo chown -R :docker /docker
 sudo chmod g+s /docker
-sudo chmod g+rwx
+sudo chmod g+rwx /docker
 ~~~
   
 ### git clone
