@@ -1,0 +1,28 @@
+version: "2"
+services:
+  proxy:
+    image: jwilder/nginx-proxy
+    container_name: proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./../letsencrypt/certs:/etc/nginx/certs:ro
+      - ./server.conf:/etc/nginx/conf.d/server.conf
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+    restart: always
+    logging:
+      options:
+        max-size: 5m
+        max-file: "10"
+    environment:
+      TZ: Asia/Tokyo
+      DEAULT_EMAIL: default_email
+      env_file: .env
+
+networks:
+  default:
+    external:
+      name: shared
