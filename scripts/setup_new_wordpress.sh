@@ -40,8 +40,8 @@ file=.env
 sed -i "s/VIRTUAL_DOMAIN=your_domain/VIRTUAL_DOMAIN=$domain/g" $file
 
 sed -i "s/MYSQL_ROOT_PASSWORD=db_root_password/MYSQL_ROOT_PASSWORD=$db_root_password/g" $file
-sed -i "s/WORDPRESS_DB_NAME=wp_db_name/WORDPRESS_DB_NAME=$db_name/g" $file
-sed -i "s/WORDPRESS_DB_USER=wp_db_user/WORDPRESS_DB_USER=$db_user/g" $file
+sed -i "s/WORDPRESS_DB_NAME=db_name/WORDPRESS_DB_NAME=$db_name/g" $file
+sed -i "s/WORDPRESS_DB_USER=db_user/WORDPRESS_DB_USER=$db_user/g" $file
 sed -i "s/WORDPRESS_DB_PASSWORD=db_pass/WORDPRESS_DB_PASSWORD=$db_passowrd/g" $file
 
 sed -i "s/MYSQL_DATABASE=db_name/MYSQL_DATABASE=$db_name/g" $file
@@ -51,7 +51,7 @@ sed -i "s/MYSQL_PASSWORD=db_pass/MYSQL_PASSWORD=$db_passowrd/g" $file
 echo "Your MySQL user Password is:${db_passowrd}"
 
 # docker build
-if docker-compose up -d --build; then
+if docker-compose -f docker-compose.yml -f production.yml up -d --build; then
     echo "docker-composeが正常に実行されました"
 else
     echo "docker-composeに失敗しました"
